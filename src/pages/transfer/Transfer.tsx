@@ -22,7 +22,7 @@ const initState = {
 export default function Transfer(props: RouteComponentProps): JSX.Element {
     const [state, setstate] = useState<any>(initState);
     const { dispatch, alert, resetAlert }: any = useContext(AppContext);
-    const payees = useSelector((state: any) => state.payees);
+    const payees = useSelector((state: any) => state?.payees);
     const { refetchBalanceTrans, getPayees } = useRequest()
 
 

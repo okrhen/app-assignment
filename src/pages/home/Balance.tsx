@@ -28,7 +28,7 @@ function Balance(): JSX.Element {
             <div className="grid grid-flow-col justify-start gap-4 items-center w-full">
                 <div className="rounded-full h-12 w-12 bg-black opacity-40" />
                 <div>
-                    <span className="block">{userState?.username}</span>
+                    <span className="block" data-testid="username">{userState?.username}</span>
                 </div>
             </div>
             <hr className="my-2 opacity-30" />
@@ -38,7 +38,7 @@ function Balance(): JSX.Element {
                         {" "}
                         {balanceState?.accountNo?.slice(0, 4).padEnd(13, "*")}
                     </span>
-                    <span className="text-xs block opacity-40">{locales.AccountNo}</span>
+                    <span className="text-xs block opacity-40" data-testid="accountNo">{locales.AccountNo}</span>
                 </div>
                 <div>
                     <span className="text-3xl opacity-80 font-black">

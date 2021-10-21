@@ -15,5 +15,5 @@ export default function Currency({ amount, type }: CurrencyProps): JSX.Element {
     let typeClass = 'font-bold'
     if (type === 'received') typeClass += ' text-green-500'
     if (type === 'transfer') typeClass += ' text-gray-400'
-    return <span className={typeClass}>{formatNumber(amount)}</span>;
+    return <span className={typeClass} data-testid="currency">{formatNumber(amount)}</span>;
 }

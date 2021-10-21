@@ -18,7 +18,7 @@ export default function LoginContainer({ type = 'login', children }: LoginContai
                 {
                     !isLogin && (
                         <div className="w-full px-4 pb-4 flex flex-col">
-                            <Link to='/'>
+                            <Link to='/login'>
                                 <ArrowLeft className="text-left text-white justify-between" />
                             </Link>
                             <span className="text-2xl text-white drop-shadow-md pt-4">{registerLocales.register}</span>
@@ -27,10 +27,10 @@ export default function LoginContainer({ type = 'login', children }: LoginContai
                 }
                 <div className="w-full px-4 pt-10 bg-white h-5/6 rounded-t-3xl grid shadow-md">
                     <div>
-                        <span className="text-2xl block text-gray-800">
+                        <span className="text-2xl block text-gray-800" data-testid="welcome">
                             {isLogin ? loginLocales.welcome : registerLocales.welcome}
                         </span>
-                        <span className="text-gray-500">
+                        <span className="text-gray-500" data-testid="welcomeSub">
                             {isLogin ? loginLocales.welcomeSub : registerLocales.welcomeSub}
                         </span>
                     </div>
@@ -38,13 +38,13 @@ export default function LoginContainer({ type = 'login', children }: LoginContai
                         {children}
                     </div>
                     <div>
-                        <span className="text-center block text-md">
+                        <span className="text-center block text-md" data-testid="bottomText">
                             {
                                 isLogin ?
                                     'Don\'t have an account? '
                                     : 'Already have an account? '
                             }
-                            <Link to={`/${isLogin ? 'register' : ''}`} className="text-red-700">{isLogin ? registerLocales.register : loginLocales.login}</Link>
+                            <Link to={`/${isLogin ? 'register' : 'login'}`} className="text-red-700">{isLogin ? registerLocales.register : loginLocales.login}</Link>
                         </span>
                     </div>
                 </div>

@@ -6,39 +6,43 @@ import appReducer, { initState } from "store/appStore";
 export const AppContext = React.createContext({});
 
 const init = () => {
-  const user = localStorage.getItem('user');
+  const user = localStorage.getItem("user");
 
   if (user) {
-    const userData = JSON.parse(user)
+    const userData = JSON.parse(user);
     return {
-      user: userData
-    }
+      user: userData,
+    };
   }
-}
+};
 
 const initialAlert = {
   open: false,
-  type: 'success',
-  message: ''
-}
+  type: "success",
+  message: "",
+};
 
 export default function App(): JSX.Element {
   const [state, dispatch] = React.useReducer(appReducer, initState, init);
-  const [showAlert, setShowAlert] = React.useState<any>(initialAlert)
+  const [showAlert, setShowAlert] = React.useState<any>(initialAlert);
 
   const resetAlert = () => {
     if (showAlert.open) {
-      setShowAlert(initialAlert)
+      setShowAlert(initialAlert);
     }
-  }
+  };
 
   return (
-    <>
-      <AppContext.Provider value={{ state, dispatch, alert: setShowAlert, resetAlert }}>
-        <AppNavigation />
-      </AppContext.Provider>
-      <Alert type={showAlert.type} show={showAlert.open} message={showAlert.message} />
-    </>
-  )
+    <AppContext.Provider
+      value={{ state, dispatch, alert: setShowAlert, resetAlert }}
+      data-testid="app"
+    >
+      <AppNavigation />
+      <Alert
+        type={showAlert.type}
+        show={showAlert.open}
+        message={showAlert.message}
+      />
+    </AppContext.Provider>
+  );
 }
-

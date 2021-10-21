@@ -34,6 +34,12 @@ REACT_APP_BASE_URL='https://green-thumb-64168.uc.r.appspot.com'
 yarn install && yarn start
 ```
 
+### Running test
+
+```
+yarn cypress:open
+```
+
 # File Structure
 
 - `/src`
@@ -53,3 +59,5 @@ yarn install && yarn start
   - `for page routing and this is the future of react router`
 - [date-fns](https://date-fns.org/)
   - `for date formatting`
+- [cypress](https://www.cypress.io/)
+  - `testing library`
