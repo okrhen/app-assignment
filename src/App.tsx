@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Alert from "components/Alert/Alert";
+import AppNavigation from "navigation/AppNavigation";
+import * as React from "react";
+import appReducer, { initState } from "store/appStore";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const AppContext = React.createContext({});
+
+const init = () => {
+  const user = localStorage.getItem('user');
+
+  if (user) {
+    const userData = JSON.parse(user)
+    return {
+      user: userData
+    }
+  }
 }
 
-export default App;
+const initialAlert = {
+  open: false,
+  type: 'success',
+  message: ''
+}
+
+export default function App(): JSX.Element {
+  const [state, dispatch] = React.useReducer(appReducer, initState, init);
+  const [showAlert, setShowAlert] = React.useState<any>(initialAlert)
+
+  const resetAlert = () => {
+    if (showAlert.open) {
+      setShowAlert(initialAlert)
+    }
+  }
+
+  return (
+    <>
+      <AppContext.Provider value={{ state, dispatch, alert: setShowAlert, resetAlert }}>
+        <AppNavigation />
+      </AppContext.Provider>
+      <Alert type={showAlert.type} show={showAlert.open} message={showAlert.message} />
+    </>
+  )
+}
+

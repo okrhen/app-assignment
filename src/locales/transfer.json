@@ -1,0 +1,7 @@
+{
+    "transfer": "Transfer",
+    "payee": "Payee",
+    "amount": "Amount",
+    "description": "Description",
+    "optional": "Optional"
+}
