@@ -1,0 +1,9 @@
+{
+    "AppName": "App Name",
+    "Transactions": "Transactions",
+    "MakeTransfer": "Make Transfer",
+    "balance": {
+        "AccountNo": "Account No.",
+        "CurrentBalance": "Current balance"
+    }
+}

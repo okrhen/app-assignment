@@ -7,6 +7,9 @@ import { AppContext } from "App";
 import useSelector from "store/useSelector";
 import useRequest from "hooks/useRequest";
 
+import balanceLocale from 'locales/home.json'
+const locales = balanceLocale.balance
+
 
 function Balance(): JSX.Element {
     const { dispatch }: any = useContext(AppContext)
@@ -21,7 +24,7 @@ function Balance(): JSX.Element {
     }, [balanceState, dispatch, getBalance]);
 
     return (
-        <div className="w-full p-4 shadow-2xl rounded-md text-white bg-primary">
+        <div className="w-full p-4 shadow-2xl rounded-md text-white bg-primary min-h-12">
             <div className="grid grid-flow-col justify-start gap-4 items-center w-full">
                 <div className="rounded-full h-12 w-12 bg-black opacity-40" />
                 <div>
@@ -35,13 +38,13 @@ function Balance(): JSX.Element {
                         {" "}
                         {balanceState?.accountNo?.slice(0, 4).padEnd(13, "*")}
                     </span>
-                    <span className="text-xs block opacity-40">Account No.</span>
+                    <span className="text-xs block opacity-40">{locales.AccountNo}</span>
                 </div>
                 <div>
                     <span className="text-3xl opacity-80 font-black">
                         <Currency amount={balanceState?.balance || 0} />
                     </span>
-                    <span className="text-sm block opacity-40">Current balance</span>
+                    <span className="text-sm block opacity-40">{locales.CurrentBalance}</span>
                 </div>
             </div>
         </div>

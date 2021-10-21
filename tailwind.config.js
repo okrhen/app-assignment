@@ -13,6 +13,10 @@ module.exports = {
         '30-70': '30% 70%'
       }
     },
+    minHeight: {
+      12: '12rem',
+      30: '30rem'
+    }
   },
   variants: {
     extend: {

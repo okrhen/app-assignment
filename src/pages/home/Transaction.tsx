@@ -17,7 +17,7 @@ function Transaction(): JSX.Element {
     }, [dispatch, getTransactions, transactionDates]);
 
     return (
-        <div className="w-full h-full pt-4">
+        <div className="w-full pt-4 h-full min-h-30">
             {transactionDates &&
                 transactionDates.map((item: string) => (
                     <TransactionCard date={item} key={item} />
