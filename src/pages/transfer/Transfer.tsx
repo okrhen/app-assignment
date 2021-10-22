@@ -92,7 +92,7 @@ export default function Transfer(props: RouteComponentProps): JSX.Element {
     };
 
     return (
-        <div className="py-4 px-6 h-full">
+        <div className="py-4 px-6 h-full bg-white">
             <div className="py-4">
                 <span onClick={handleClick} role="button" tabIndex={0}>
                     <ArrowLeft />
