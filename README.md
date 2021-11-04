@@ -22,7 +22,7 @@ git clone https://github.com/okrhen/app-assignment.git
 
 ### Config
 
-create `env.local` inside the root folder and paste this
+create `.env.local` inside the root folder and paste this
 
 ```
 REACT_APP_BASE_URL='https://green-thumb-64168.uc.r.appspot.com'
